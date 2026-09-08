@@ -6,7 +6,7 @@
   it keeps its load-bearing promises STRUCTURALLY: its closed vocab == the ontology; it makes NO
   network call; it states free (¥0), member-submitted, and on-device."
   (:require [clojure.test :refer [deftest is run-tests]]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             #?(:clj [clojure.java.io :as io])
             [tasuke.methods.edn :as tedn]))
 
@@ -39,7 +39,7 @@
 
 ;; ── the on-device / no-server-key guarantee, as a property of the file ───────
 (deftest test-app-makes-no-network-call
-  (let [h (str/lower-case (html))]
+  (let [h (str/lower (html))]
     (doseq [forbidden ["fetch(" "xmlhttprequest" "navigator.sendbeacon" "<form action" "websocket"]]
       (is (not (str/includes? h forbidden))
           (str "app must not " (pr-str forbidden) " (G6/G7 on-device, no upload)")))

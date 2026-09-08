@@ -5,7 +5,7 @@
   Generates a police-side document and GUARDS the invariants: it is authored BY THE MEMBER
   (本人作成の申告書類, never police-authored — 公文書偽造を排除), requires the member's signature,
   is free, and is draft-only at R0. A request to author a doc AS the police is REFUSED."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [tasuke.methods.report-gen :as rg]))
 
 (def ^:private police-kinds
@@ -29,7 +29,7 @@
   (merge state-defaults (get state "cell_state" {})))
 
 (defn- kw* [v]
-  (-> (str (or v "")) (str/replace #"^:+" "") (str/split #"/") last str/lower-case))
+  (-> (str (or v "")) (str/replace #"^:+" "") (str/split #"/") last str/lower))
 
 (defn generate [state]
   (let [cs (cell-state state)

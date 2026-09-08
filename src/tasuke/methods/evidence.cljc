@@ -11,7 +11,7 @@
   form is the encrypted-envelope ref + the hash. That is the G6 invariant in code.
 
   House style: Python ':…' keyword strings stay strings; pure fns; sha256 at the #?(:clj) edge."
-  (:require [clojure.string :as str]))
+  (:require [kotoba.lang.text :as str]))
 
 (def EVIDENCE-KINDS
   ["url" "email-header" "screenshot" "chat-log" "transaction-record" "wallet-address"
@@ -37,7 +37,7 @@
       (str/replace #"^:+" "")
       (str/split #"/")
       (last)
-      (str/lower-case)))
+      (str/lower)))
 
 (defn- to-int
   [v]

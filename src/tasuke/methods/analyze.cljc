@@ -13,7 +13,7 @@
 
   House style: Python ':…' keyword strings stay strings; pure fns; file I/O only at the #?(:clj)
   edge. Byte-parity: `-main` writes the SAME bytes analyze.py writes to out/support-dryrun.md."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             #?(:clj [clojure.java.io :as io])
             [tasuke.methods.edn :as tedn]
             [tasuke.methods.report-gen :as rg]

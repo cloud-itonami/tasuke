@@ -15,7 +15,7 @@
   House style: Python ':…' keyword strings stay strings; pure fns. The loss parser accepts
   「480000」「48万」「48万円」「480,000円」 and returns yen as a long. sha1 at the #?(:clj) edge.
   (The interactive `__main__` demo is intentionally omitted from the port.)"
-  (:require [clojure.string :as str]))
+  (:require [kotoba.lang.text :as str]))
 
 ;; (field, prompt, kind) — shared by the interactive loop AND the tests.
 (def QUESTIONS
@@ -30,7 +30,7 @@
 (def ^:private NO  #{"いいえ" "no" "n" "やめる" "false" "0" ""})
 
 (defn parse-yesno [s]
-  (contains? YES (str/lower-case (str/trim (str s)))))
+  (contains? YES (str/lower (str/trim (str s)))))
 
 (defn parse-yen
   "「48万」「480,000円」「なし」→ long yen. Best-effort; returns 0 when none/unparseable."

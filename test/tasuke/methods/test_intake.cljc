@@ -1,7 +1,7 @@
 (ns tasuke.methods.test-intake
   "Tests for 助 (tasuke) plain-language intake — 誰でも使える, invariants baked in.
   1:1 port of `methods/test_intake.py` (pytest → clojure.test)."
-  (:require [clojure.test :refer [deftest is run-tests]]
+  (:require [kotoba.lang.text] [clojure.test :refer [deftest is run-tests]]
             [tasuke.methods.intake :as intake]
             [tasuke.methods.packet :as packet]))
 
@@ -48,7 +48,7 @@
 (deftest test-answers-to-packet-is-free-and-complete
   (let [case (intake/build-case-from-answers (answers))
         p (packet/build-packet case)
-        kinds (map #(clojure.string/replace (get % ":doc/kind") #"^:+" "") (get p "documents"))]
+        kinds (map #(kotoba.lang.text/replace (get % ":doc/kind") #"^:+" "") (get p "documents"))]
     (is (= 0 (get p "cost")))
     (is (and (some #{"damage-report"} kinds) (some #{"bank-freeze-request"} kinds)))  ;; money moved
     (doseq [d (get p "documents")]

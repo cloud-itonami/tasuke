@@ -2,7 +2,7 @@
   "Tests for 助 (tasuke) triage — scam-kind classification, severity, free-windows, gates.
   1:1 port of `methods/test_triage.py` (clojure.test)."
   (:require [clojure.test :refer [deftest is testing run-tests]]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [clojure.java.io :as io]
             [tasuke.methods.edn :as tedn]
             [tasuke.methods.triage :as triage]))
