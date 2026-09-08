@@ -4,7 +4,7 @@
 
   Bind the manifest, cell tree, lexicons, ontology, code, seed, and registry to ONE source of truth."
   (:require [clojure.test :refer [deftest is run-tests]]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             #?(:clj [clojure.java.io :as io])
             [tasuke.methods.edn :as tedn]
             [tasuke.methods.triage :as triage]))

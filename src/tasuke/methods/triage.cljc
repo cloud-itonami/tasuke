@@ -15,7 +15,7 @@
 
   House style: Python ':…' keyword strings stay strings; pure fns; closed-vocab/gate → ex-info.
   The _KEYWORDS / _WINDOWS ordering matches Python exactly (classify scans in order)."
-  (:require [clojure.string :as str]))
+  (:require [kotoba.lang.text :as str]))
 
 ;; ── closed vocab (mirror of the ontology :db/allowed) ───────────────────────────
 (def SCAM-KINDS
@@ -73,7 +73,7 @@
   "_txt — joined narrative + scam-kind + title, lower-cased."
   [intake]
   (-> (str/join " " (map #(str (get intake % "")) [":case/narrative" ":case/scam-kind" ":case/title"]))
-      (str/lower-case)))
+      (str/lower)))
 
 (defn support-cost-jpy
   "G1 全て無料 INVARIANT — there is no other answer. 助's support always costs 0."
@@ -93,7 +93,7 @@
 (defn classify
   "Return the scam KIND (G4 — for routing, not a verdict). Honors an explicit :case/scam-kind."
   [intake]
-  (let [explicit (-> (str (get intake ":case/scam-kind" "")) (lstrip-colon) (str/lower-case))]
+  (let [explicit (-> (str (get intake ":case/scam-kind" "")) (lstrip-colon) (str/lower))]
     (if (some #{explicit} SCAM-KINDS)
       explicit
       (let [blob (txt intake)]

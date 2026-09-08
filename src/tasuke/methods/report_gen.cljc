@@ -10,7 +10,7 @@
 
   House style: Python ':…' keyword strings stay strings; pure fns; f-string thousands `{n:,}`
   reproduced exactly."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [tasuke.methods.evidence :as ev]
             [tasuke.methods.triage :as triage]))
 

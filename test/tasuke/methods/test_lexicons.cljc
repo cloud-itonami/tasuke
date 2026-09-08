@@ -2,7 +2,7 @@
   "Well-formedness + SSoT-consistency tests for the 助 (tasuke) lexicons and ontology.
   1:1 port of `methods/test_lexicons.py` (pytest → clojure.test)."
   (:require [clojure.test :refer [deftest is run-tests]]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             #?(:clj [clojure.java.io :as io])
             [tasuke.methods.edn :as tedn]))
 

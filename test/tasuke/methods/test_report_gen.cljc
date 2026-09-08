@@ -2,7 +2,7 @@
   "Tests for 助 (tasuke) document generation — G3 member-authored, G1 free, G2 signature, G9 draft.
   1:1 port of `methods/test_report_gen.py` (pytest → clojure.test)."
   (:require [clojure.test :refer [deftest is run-tests]]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [tasuke.methods.report-gen :as rg]))
 
 (def ^:private CASE

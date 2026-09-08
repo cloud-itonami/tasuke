@@ -16,14 +16,14 @@
 
   House style: Python ':…' keyword strings stay strings; pure fns; file I/O only at the #?(:clj)
   edge. (The interactive `__main__`/CLI demo is intentionally omitted from the port.)"
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             #?(:clj [clojure.java.io :as io])
             [tasuke.methods.edn :as tedn]
             [tasuke.methods.report-gen :as rg]
             [tasuke.methods.triage :as triage]))
 
 (defn- kw* [v]
-  (-> (str (or v "")) (str/replace #"^:+" "") (str/split #"/") (last) (str/lower-case)))
+  (-> (str (or v "")) (str/replace #"^:+" "") (str/split #"/") (last) (str/lower)))
 
 ;; ── _ja_kind reaches into report_gen's private JA map (mirrors Python rg._ja_kind) ──
 (defn- ja-kind [kind] ((deref #'tasuke.methods.report-gen/ja-kind) kind))

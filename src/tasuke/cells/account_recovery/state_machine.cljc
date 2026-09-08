@@ -5,7 +5,7 @@
   Generates a recovery plan whose :support-role is :self-submit (the member executes the steps;
   助 never logs in as an agent). A request to act AS the member (represent/proxy/agent-file) is
   REFUSED. Free (G1), member-authored (G3), draft-only (G9)."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [tasuke.methods.report-gen :as rg]))
 
 (def ^:private allowed-roles #{"guide" "draft-assist" "self-submit"})
@@ -28,7 +28,7 @@
   (merge state-defaults (get state "cell_state" {})))
 
 (defn- kw* [v]
-  (-> (str (or v "")) (str/replace #"^:+" "") (str/split #"/") last str/lower-case))
+  (-> (str (or v "")) (str/replace #"^:+" "") (str/split #"/") last str/lower))
 
 (defn plan [state]
   (let [cs (cell-state state)

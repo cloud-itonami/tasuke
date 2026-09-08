@@ -2,7 +2,7 @@
   "End-to-end membrane tests for 助 (tasuke) — every case journey costs the victim ¥0.
   1:1 port of `methods/test_analyze.py` (clojure.test)."
   (:require [clojure.test :refer [deftest is run-tests]]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [tasuke.methods.analyze :as analyze]))
 
 #?(:clj (def RES (delay (analyze/run (analyze/load-seed)))))

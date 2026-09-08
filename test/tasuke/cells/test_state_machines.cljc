@@ -4,7 +4,7 @@
   .solve() is NOT exercised (R0 scaffold raises); the cell.py-importing test is dropped per the
   port-wave rule — the cljc state machines require the cljc method twins, so every assertion passes."
   (:require [clojure.test :refer [deftest is]]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [tasuke.cells.intake-triage.state-machine :as intake]
             [tasuke.cells.evidence-preservation.state-machine :as evid]
             [tasuke.cells.police-report.state-machine :as report]

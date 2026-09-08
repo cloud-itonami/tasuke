@@ -2,7 +2,7 @@
   "Tests for 助 (tasuke) packet generator — the usable \"誰でも使える\" surface.
   1:1 port of `methods/test_packet.py` (pytest → clojure.test)."
   (:require [clojure.test :refer [deftest is run-tests]]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             #?(:clj [clojure.java.io :as io])
             [tasuke.methods.edn :as tedn]
             [tasuke.methods.packet :as packet]))

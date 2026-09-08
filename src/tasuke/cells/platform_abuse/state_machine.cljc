@@ -4,7 +4,7 @@
 
   Generates a bank-freeze or platform request, member-authored (G3), to be sent BY THE MEMBER
   (G2 — no 代理送付), free (G1), draft-only (G9). A request to send as an agent is REFUSED."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [tasuke.methods.report-gen :as rg]))
 
 (def ^:private request-kinds #{"bank-freeze-request" "platform-request"})
@@ -27,7 +27,7 @@
   (merge state-defaults (get state "cell_state" {})))
 
 (defn- kw* [v]
-  (-> (str (or v "")) (str/replace #"^:+" "") (str/split #"/") last str/lower-case))
+  (-> (str (or v "")) (str/replace #"^:+" "") (str/split #"/") last str/lower))
 
 (defn generate [state]
   (let [cs (cell-state state)

@@ -6,7 +6,7 @@
   grepping prose. The load-bearing trio: G1 全て無料, G2 本人作成・本人提出, G3 警察authored不可.
   Plus G5 (no paid referral), G6 (PII by ref), G7 (no-server-key), G9 (draft-only)."
   (:require [clojure.test :refer [deftest is run-tests]]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             #?(:clj [clojure.java.io :as io])
             [tasuke.methods.edn :as tedn]
             [tasuke.methods.triage :as triage]))
@@ -79,7 +79,7 @@
 ;; ── G6 PII-by-reference — evidence has no plaintext field ────────────────────
 (deftest test-evidence-lexicon-has-no-plaintext-field
   (let [p (props "evidenceItem")]
-    (is (not (some (fn [k] (let [s (str/lower-case (str k))]
+    (is (not (some (fn [k] (let [s (str/lower (str k))]
                              (or (str/includes? s "plaintext") (str/includes? s "raw"))))
                    (keys p))))
     (is (contains? p ":envelopeRef"))))
