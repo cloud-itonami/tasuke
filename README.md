@@ -6,4 +6,4 @@ It never adjudicates a crime and never submits on behalf of a member.
 
 Canonical ontology: `schema/cybercrime-victim-support-ontology.kotoba.edn`.
 Canonical seed: `data/seed-cybercrime-cases.kotoba.edn`.
-Run the portable suite with `bb run_tests.clj`.
+Run the portable suite with `bb run_tests.kotoba`.
