@@ -11,4 +11,4 @@
 - 支援は無料、本人作成・本人提出、警察 authored 不可、非裁定。
 - evidence は PII-by-reference、no-server-key、live submission は gated。
 
-Run `bb run_tests.kotoba` and `clojure -M:test`.
+Run `bb run_tests.kotoba` and `kbb -M:test`.
