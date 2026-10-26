@@ -22,8 +22,9 @@
         ;; jp-go-dds — このワークスペースの基本 design system（DADS）。
         ;; `--hig-*` 契約は tokens/bridge-css が DADS primitive の上に再定義する。
         io.github.kotoba-lang/jp-go-digital-design-system
-        {:git/url "https://github.com/kotoba-lang/jp-go-digital-design-system.git"
-         :git/sha "cc8f4849af5def7ea535fd6c0b8a623ccca645e9"}}
+        {:git/url "https://github.com/kotoba-lang/kotoba.git"
+         :git/sha "96a82d9612d7f3699f93323bad0c68355b8f7cc9"
+         :deps/root "lib/kotoba.jpGoDigitalDesignSystem"}}
 
  :aliases
  {:cljs {:extra-deps {org.clojure/clojurescript {:mvn/version "1.11.132"}
